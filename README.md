@@ -1,6 +1,6 @@
 # Real Time Analysis of Crypto Data
 
-A real-time data analysis pipeline that consumes streaming financial data. It integrates Apache Kafka for publishing and consuming data, calculates trading strategy and uses Flask via HTTP endpoints.
+A real-time data analysis pipeline that consumes streaming financial data from Binance API. It integrates Apache Kafka for publishing and consuming data, calculates trading strategy and uses Flask via HTTP endpoints.
 
 ## Structure
 ```
