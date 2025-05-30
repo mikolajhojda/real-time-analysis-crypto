@@ -5,11 +5,12 @@ A real-time data analysis pipeline that consumes streaming financial data. It in
 ## Structure
 ```
 rta/
-├── producer.py        # Streams data to Kafka
-├── consumer.py        # Listens to Kafka and processes data
-├── RSI.py             # Computes RSI from price data
-├── flask.py           # Serves analytics via API
-├── app_use.ipynb      # Example usage
+├── src/
+│   ├── producer.py        # Streams data to Kafka
+│   ├── consumer.py        # Listens to Kafka and processes data
+│   ├── RSI.py             # Computes RSI from price data
+│   ├── flask.py           # Serves analytics via API
+│   ├── app_use.ipynb      # Example usage
 └── README.md
 ```
 
