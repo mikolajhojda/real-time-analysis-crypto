@@ -28,7 +28,7 @@ ls -la
 ```
 
 ```
-kafka/bin/kafka-topics.sh --list --bootstrap-server broker:9092
+kafka/bin/kafka-topics.sh --bootstrap-server broker:9092 --create --topic binance-stream
 ```
 
 ### 2. Start the Producer
