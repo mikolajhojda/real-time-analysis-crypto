@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 
 
-WINDOW = 150            # ← size of rolling window in bars
+WINDOW = 150 # size of rolling window in bars
 RSI_LEN = 14
 
 
@@ -23,7 +23,7 @@ class MovingAverageRSIStrategy:
         self.capital = capital
         self.is_long = False
         self.entry_price = None
-        self.equity = [capital]          # realised equity after each SELL
+        self.equity = [capital] # realised equity after each SELL
         # data container
         self.data: pd.DataFrame | None = None
 

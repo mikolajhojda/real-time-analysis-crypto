@@ -5,12 +5,12 @@ Print CSV lines and repeat the header every N rows so it never scrolls away.
 """
 
 from kafka import KafkaConsumer
-from RSI import MovingAverageRSIStrategy, WINDOW          # WINDOW = 150 in RSI.py
+from RSI import MovingAverageRSIStrategy, WINDOW # WINDOW - size of rolling window in bars in RSI.py
 import json, datetime, math, sys
 
 BROKER = "broker:9092"
 TOPIC  = "binance-stream"
-REPEAT_HEADER_EVERY = 25      # <─ print header after this many rows
+REPEAT_HEADER_EVERY = 25 # print header after this number of rows
 
 # ── consumer -----------------------------------------------------------
 consumer = KafkaConsumer(
@@ -32,12 +32,14 @@ for msg in consumer:
     bar = msg.value
     bar_count += 1
 
-    # print the header periodically so it's always visible
+    # print the header periodically
     if bar_count % REPEAT_HEADER_EVERY == 0:
         print(HEADER)
 
-    decision = strat.update(bar)                                     # still feed
+    decision = strat.update(bar)
     ts = datetime.datetime.fromtimestamp(bar["bucket"])
+
+    # prevent printing too little data
     '''
     if bar_count < WINDOW:
         print(f"{ts},{bar['close']:.2f},{bar['volume']:.6f},"
